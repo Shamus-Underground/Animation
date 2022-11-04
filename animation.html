@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #a {
+    .boxes {
             animation: as 4s infinite;
+            animation-play-state: paused;
         }
 
         @keyframes as {
@@ -43,8 +44,13 @@
             }
         }
 
-        .wordMeme {
+        .box {
             animation: allPacked 10s infinite;
+            animation-play-state: paused;
+        }
+        .box1 {
+            animation: allPacked 10s infinite;
+            animation-play-state: paused;
         }
 
         @keyframes allPacked {
@@ -340,37 +346,32 @@
             }
             
         }
-        .stop {
+       
+        .box1 {
             animation-play-state: running;
+        }
+          
+        .box.horizTranslate {
+            animation-play-state: running;
+        }
+          
     </style>
 </head>
 
 <body>
-    <script>var boxOne=document.getElementsByClassName('box')[0];
-        var running=false;
 
-        var toggleTransition=function() {
-            if( !running) {
-                boxOne.classList.add('stop');
-            }
-
-            else {
-                boxOne.classList.remove('stop');
-            }
-
-            running= !running;
-        }
-
-        </script>
     <!-- Inline Styling -->
     <div style="background: red; width: 100%; text-align: center;padding: 5px 0;">
+        <button class='toggleButton' onclick='toggleTransition1()'>Toggle</button>
         <div style="width: 200px; font-size: 50px; display:inline-block">navbar</div>
-        <div id="a" style="display:inline-block; width:80px; height:80px; background: black"></div>
+        <div class="boxes" style="display:inline-block; width:80px; height:80px; background: black"></div>
     </div>
     <div class="bloatingPickaxe"
         style="background: green; width: 100%; text-align: center; align-items: center;padding: 200px 0;">
+        <button class='toggleButton' onclick='toggleTransition2()'>Toggle</button>
         <div style="display:inline-block;font-size: 50px;">Place For Introdctory Image/Video</div>
-        <div class="wordMeme"
+        <button class='toggleButton' onclick='toggleTransition()'>Toggle</button>
+        <div class="box1"
             style="display:inline-block;align-items: center; width:80px; height:80px; background: white">billerica</div>
     </div>
     <div style="background: blue; width: 50%; float: right; text-align: center;padding: 200px 0;">
@@ -419,6 +420,38 @@
         <div class="final" style="display:inline-block;align-items: center; width:80px; height:80px; background: green">
         </div>
     </div>
+    <script> 
+    
+        var boxOne1=document.getElementsByClassName('boxes')[0];
+            var running1=false;
+    
+            var toggleTransition1=function() {
+                if( !running1) {
+                    boxOne1.classList.add('stop');
+                }
+    
+                else {
+                    boxOne1.classList.remove('stop');
+                }
+    
+                running1= !running1;
+            }
+    
+            var boxOne = document.getElementsByClassName('box1')[0];
+    var running = false;
+    
+    var toggleTransition2 = function() {
+      if(!running) 
+      { 
+        boxOne.classList.add('hault');
+      } else {
+        boxOne.classList.remove('hault'); 
+      }  
+    
+      running = !running;
+    }
+    
+    </script>
 </body>
 
 </html>
